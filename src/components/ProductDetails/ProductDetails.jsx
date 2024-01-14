@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
-  const url = "https://fakestoreapi.com/products";
+  const url = "https://dummyjson.com/products";
   const [prodact, setProduct] = useState([]);
   const prams = useParams();
 
@@ -38,12 +38,14 @@ const ProductDetails = () => {
         <div className="border col-lg-9  mt-3 p-3 shadow-sm">
           <div className="row">
             <div className="col-md-3">
-              <img src={prodact.image} alt="" style={{ width: "200px" }} />
+              <img src={prodact.thumbnail} alt="" style={{ width: "100%" }} />
             </div>
             <div className="col-md-9">
               <h3 className="my-3"> {prodact.title}</h3>
               <p> {prodact.description}</p>
               <h4 className="text-danger"> {prodact.price}</h4>
+              <h5 className="text-alert-secondary"> brand: {prodact.brand}</h5>
+              <h5 className="text-alert-secondary"> stock: {prodact.stock}</h5>
               <div className="d-flex gap-3 mt-2">
                 <button
                   onClick={() =>

@@ -2,6 +2,8 @@ import React from "react";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaMinus } from "react-icons/fa";
+import { RiDeleteBinLine } from "react-icons/ri";
+
 import { useSelector, useDispatch } from "react-redux";
 import { deleteItem, clearCart, incrimentQuantity, dencrimentQuantity } from "../../redux/amazonSlice";
 
@@ -38,10 +40,7 @@ const Cart = () => {
             <div className="col-md-8">
               {products.map((item) => {
                 return (
-                  <div className="d-flex mb-4 gap-5 border shadow-sm p-3 bg-light" key={item.id}>
-                    <div className="item-img">
-                      <img src={item.image} alt="productImg" style={{ width: "150px", mixBlendMode: "multiply" }} />
-                    </div>
+                  <div className="mb-4 gap-5 border shadow-sm p-3 bg-light" key={item.id}>
                     <div className="item">
                       <h2>{item.title}</h2>
                       <p className="lead fs-6">{item.description.substring(0, 100)}</p>
@@ -55,11 +54,11 @@ const Cart = () => {
                             <FaPlus />
                           </button>
                         </div>
-                        <h5 className="text-danger">price: $ {item.price}</h5>
+                        <button className="btn text-danger fs-3" onClick={() => dispatch(deleteItem(item.id))}>
+                          <RiDeleteBinLine />
+                        </button>
                       </div>
-                      <button className="btn btn-danger mt-3" onClick={() => dispatch(deleteItem(item.id))}>
-                        deleteItem
-                      </button>
+                      <h5 className="text-danger mt-2">price: $ {item.price}</h5>
                     </div>
                   </div>
                 );
