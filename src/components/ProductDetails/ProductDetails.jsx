@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { addToCart } from "../../redux/amazonSlice";
+import { addToCart } from "../../redux/storeSlice";
 import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {

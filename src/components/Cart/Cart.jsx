@@ -5,11 +5,11 @@ import { FaMinus } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 import { useSelector, useDispatch } from "react-redux";
-import { deleteItem, clearCart, incrimentQuantity, dencrimentQuantity } from "../../redux/amazonSlice";
+import { deleteItem, clearCart, incrimentQuantity, dencrimentQuantity } from "../../redux/storeSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.amazonReducer.products);
+  const products = useSelector((state) => state.storeReducer.products);
 
   const totalPrice = products.reduce((acc, product) => {
     acc += product.price * product.quantity;

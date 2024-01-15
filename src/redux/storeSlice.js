@@ -5,8 +5,8 @@ const initialState = {
   usrInfo: [],
 };
 
-export const amazonSlice = createSlice({
-  name: "amazon",
+export const storeSlice = createSlice({
+  name: "store",
   initialState,
 
   reducers: {
@@ -40,5 +40,5 @@ export const amazonSlice = createSlice({
   },
 });
 
-export const { addToCart, deleteItem, clearCart, incrimentQuantity, dencrimentQuantity } = amazonSlice.actions;
-export default amazonSlice.reducer;
+export const { addToCart, deleteItem, clearCart, incrimentQuantity, dencrimentQuantity } = storeSlice.actions;
+export default storeSlice.reducer;

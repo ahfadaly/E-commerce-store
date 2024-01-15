@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const cart = useSelector((state) => state.amazonReducer.products);
+  const cart = useSelector((state) => state.storeReducer.products);
 
   return (
     <div className="bg-light shadow-sm py-2 fixed-top">
