@@ -11,7 +11,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg">
         <div className="container">
           <Link className="navbar-brand fw-bold fs-4" to="/">
-            amazon
+            store
           </Link>
           <button
             className="navbar-toggler"
@@ -36,23 +36,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-
-            {cart.length > 0 ? (
-              <div className="buttons d-flex gap-3">
-                <Link to="/cart" className="btn btn-secondary position-relative">
-                  <FaCartPlus />
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    {cart.length > 0 ? cart.length : 0}
-                  </span>
-                </Link>
-              </div>
-            ) : (
-              <>
-                <button className="btn btn-secondary">
-                  <FaCartPlus />
-                </button>
-              </>
-            )}
+            <div className="buttons d-flex gap-3">
+              <Link to="/cart" className="btn btn-secondary position-relative">
+                <FaCartPlus />
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cart.length > 0 ? cart.length : 0}
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
