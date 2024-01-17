@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/storeSlice";
 import { useDispatch } from "react-redux";
 import { IoFilter } from "react-icons/io5";
+import { FaCartPlus } from "react-icons/fa";
+import { IoEyeOutline } from "react-icons/io5";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -11,7 +13,7 @@ const Products = () => {
   const url = "https://dummyjson.com/products";
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchItem, setSearchItem] = useState("");
   const [loading, setLoading] = useState(false);
 
   const getProducts = () => {
@@ -52,21 +54,21 @@ const Products = () => {
       });
   };
 
-  const searchProducts = products.filter((product) => product.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  const searchProducts = products.filter((product) => product.title.toLowerCase().includes(searchItem.toLowerCase()));
 
   const productUI = searchProducts.map((item) => {
     return (
       <div key={item.id} className="col-xl-3 col-lg-4 col-sm-6 mb-3">
-        <div className="product border p-3 shadow-sm h-100">
-          <div className="products">
-            <img src={item.thumbnail} style={{ width: "100%", height: "150px" }} />
+        <div className="product-item border p-3 shadow-sm position-relative h-100">
+          <div className="products-desc">
+            <img src={item.thumbnail} style={{ width: "100%", height: "120px", objectFit: "contain" }} />
             <h6 className="my-3">{item.title} </h6>
             <p className="my-3">{item.description.substring(0, 40)} ...</p>
             <h4 className="my-3">$ {item.price}</h4>
           </div>
-          <div className="d-flex gap-2">
-            <Link to={`/product/${item.id}`} className="btn btn-danger">
-              Details
+          <div className="d-flex gap-2 add-cart">
+            <Link to={`/product/${item.id}`} className="btn btn-white border shadow-sm">
+              <IoEyeOutline />
             </Link>
             <button
               onClick={() =>
@@ -76,14 +78,14 @@ const Products = () => {
                     title: item.title,
                     description: item.description,
                     price: item.price,
-                    image: item.image,
+                    thumbnail: item.thumbnail,
                     quantity: 1,
                   })
                 )
               }
-              className="btn btn-success"
+              className="btn btn-danger border shadow-sm"
             >
-              Add to Cart
+              <FaCartPlus />
             </button>
           </div>
         </div>
@@ -115,8 +117,8 @@ const Products = () => {
                 className="form-control"
                 type="text"
                 placeholder="Search products"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchItem}
+                onChange={(e) => setSearchItem(e.target.value)}
               />
             </div>
           </div>

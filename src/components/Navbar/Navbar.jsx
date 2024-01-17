@@ -8,45 +8,39 @@ const Navbar = () => {
 
   return (
     <div className="bg-light shadow-sm py-2 fixed-top">
-      <nav className="navbar navbar-expand-lg">
-        <div className="container">
+      <div className="container">
+        <div className="d-flex justify-content-between align-items-center p-2">
           <Link className="navbar-brand fw-bold fs-4" to="/">
             store
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarslide"
-            aria-controls="navbarslide"
-            aria-expanded="false"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarslide">
-            <ul className="navbar-nav m-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/products" className="nav-link">
-                  Products
-                </NavLink>
-              </li>
-            </ul>
-            <div className="buttons d-flex gap-3">
-              <Link to="/cart" className="btn btn-secondary position-relative">
-                <FaCartPlus />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {cart.length > 0 ? cart.length : 0}
-                </span>
-              </Link>
-            </div>
+          <ul className="list-unstyled d-flex gap-2 m-0 p-0">
+            <li className="nav-item">
+              <NavLink to="/" className="nav-link">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/products" className="nav-link">
+                Products
+              </NavLink>
+            </li>
+          </ul>
+          <div className="cart">
+            <button
+              className="btn btn-secondary position-relative"
+              data-bs-toggle="offcanvas"
+              href="#cart"
+              role="button"
+              aria-controls="cart"
+            >
+              <FaCartPlus />
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cart.length > 0 ? cart.length : 0}
+              </span>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
     </div>
   );
 };

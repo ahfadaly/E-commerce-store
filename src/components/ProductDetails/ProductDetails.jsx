@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { addToCart } from "../../redux/storeSlice";
 import { useDispatch } from "react-redux";
+import { FaCartPlus } from "react-icons/fa";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -35,18 +36,20 @@ const ProductDetails = () => {
             </ol>
           </nav>
         </div>
-        <div className="border col-lg-9  mt-3 p-3 shadow-sm">
+        <div className="border col-lg-9 mt-5 p-3 m-auto">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-3 mb-4">
               <img src={prodact.thumbnail} alt="" style={{ width: "100%" }} />
             </div>
             <div className="col-md-9">
-              <h3 className="my-3"> {prodact.title}</h3>
+              <h3 className="mb-3"> {prodact.title}</h3>
               <p> {prodact.description}</p>
               <h4 className="text-danger"> {prodact.price}</h4>
               <h5 className="text-alert-secondary"> brand: {prodact.brand}</h5>
-              <h5 className="text-alert-secondary"> stock: {prodact.stock}</h5>
-              <div className="d-flex gap-3 mt-2">
+              <h5 className="text-alert-secondary">
+                Stock: <span className="text-success">{prodact.stock}</span>
+              </h5>
+              <div className="d-flex gap-3 justify-content-end">
                 <button
                   onClick={() =>
                     dispatch(
@@ -60,13 +63,10 @@ const ProductDetails = () => {
                       })
                     )
                   }
-                  className="btn btn-success"
+                  className="btn btn-danger"
                 >
-                  Add to Cart
+                  <FaCartPlus />
                 </button>
-                <Link to="/cart" className="btn btn-primary ">
-                  Go to Cart
-                </Link>
               </div>
             </div>
           </div>

@@ -2,8 +2,8 @@ import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
-import Cart from "./components/Cart/Cart";
 import { Routes, Route } from "react-router-dom";
+import OffcanvasCart from "./components/OffcanvasCart/OffcanvasCart";
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="product/:productId" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
       </Routes>
+      <OffcanvasCart />
     </>
   );
 }
