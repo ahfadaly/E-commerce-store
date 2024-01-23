@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="container">
         <div className="d-flex justify-content-between align-items-center p-2">
           <Link className="navbar-brand fw-bold fs-4" to="/">
-            store
+            Store
           </Link>
           <ul className="list-unstyled d-flex gap-2 m-0 p-0">
             <li className="nav-item">
