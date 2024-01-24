@@ -49,7 +49,7 @@ const ProductDetails = () => {
               <h5 className="text-alert-secondary">
                 Stock: <span className="text-success">{prodact.stock}</span>
               </h5>
-              <div className="d-flex gap-3 justify-content-end">
+              <div className="d-flex mt-3">
                 <button
                   onClick={() =>
                     dispatch(
@@ -63,7 +63,7 @@ const ProductDetails = () => {
                       })
                     )
                   }
-                  className="btn btn-danger"
+                  className="btn btn-success w-25"
                 >
                   <FaCartPlus />
                 </button>

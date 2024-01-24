@@ -66,7 +66,7 @@ const Products = () => {
             <p className="my-3">{item.description.substring(0, 40)} ...</p>
             <h4 className="my-3">$ {item.price}</h4>
           </div>
-          <div className="d-flex gap-2 add-cart">
+          <div className="d-flex gap-2 ">
             <Link to={`/product/${item.id}`} className="btn btn-white border shadow-sm">
               <IoEyeOutline />
             </Link>
@@ -83,7 +83,7 @@ const Products = () => {
                   })
                 )
               }
-              className="btn btn-danger border shadow-sm"
+              className="btn btn-success border shadow-sm w-100"
             >
               <FaCartPlus />
             </button>
@@ -100,7 +100,7 @@ const Products = () => {
       ) : (
         <div className="container mt-5">
           <div className="row justify-content-between">
-            <div className="col-3">
+            <div className="col-md-4 mb-3">
               <a
                 className="btn btn-primary"
                 data-bs-toggle="offcanvas"
@@ -112,7 +112,7 @@ const Products = () => {
                 <IoFilter />
               </a>
             </div>
-            <div className="col-7">
+            <div className="col-md-8">
               <input
                 className="form-control"
                 type="text"
