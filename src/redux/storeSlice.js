@@ -39,6 +39,11 @@ export const storeSlice = createSlice({
     },
     deleteItem: (state, action) => {
       state.products = state.products.filter((item) => item.id !== action.payload);
+      toast.error("product been deleted", {
+        position: "bottom-left",
+        theme: "dark",
+        autoClose: 2000,
+      });
     },
     clearCart: (state) => {
       state.products = [];

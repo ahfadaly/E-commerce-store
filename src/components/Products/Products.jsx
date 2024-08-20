@@ -29,7 +29,7 @@ const Products = () => {
     fetch(`${url}/categories`)
       .then((res) => res.json())
       .then((data) => {
-        setCategories(data);
+        setCategories(["smartphones", "laptops", "fragrances", "skincare", "groceries"]);
       });
   };
 
